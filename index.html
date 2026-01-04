@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <meta name="theme-color" content="#2563eb">
+    <title>Yükümnerdeemmi</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <input type="file" id="fileInput" accept="image/*" style="display: none;">
+
+    <section id="login-screen" class="active-screen">
+        <div class="auth-box">
+            <h1>Yükümnerdeemmi 🚚</h1>
+            <p>Hoş geldin Emmi, giriş yap bakalım.</p>
+            <form id="loginForm">
+                <input type="text" id="loginUsername" placeholder="Kullanıcı Adı" required>
+                <input type="password" id="loginPassword" placeholder="Şifre" required>
+                <button type="submit" class="btn-primary">Giriş Yap</button>
+            </form>
+            <p class="toggle-text">Hesabın yok mu? <a href="#" onclick="showScreen('register-screen')">Kayıt Ol</a></p>
+        </div>
+    </section>
+
+    <section id="register-screen" class="hidden-screen">
+        <div class="auth-box">
+            <h1>Kayıt Ol</h1>
+            <form id="registerForm">
+                <input type="text" id="regName" placeholder="Ad" required>
+                <input type="text" id="regSurname" placeholder="Soyad" required>
+                <input type="text" id="regUsername" placeholder="Kullanıcı Adı" required>
+                <input type="password" id="regPassword" placeholder="Şifre" required>
+                <input type="text" id="regAddress" placeholder="Adres" required>
+                <input type="tel" id="regPhone" placeholder="Telefon Numarası" required>
+                <button type="submit" class="btn-primary">Kayıt Ol</button>
+            </form>
+            <p class="toggle-text">Zaten hesabın var mı? <a href="#" onclick="showScreen('login-screen')">Giriş Yap</a></p>
+        </div>
+    </section>
+
+    <section id="other-profile-screen" class="hidden-screen">
+        <header>
+            <div class="logo" onclick="closeUserProfile()" style="cursor:pointer; font-size: 1rem;">
+                <i class="fa-solid fa-arrow-left"></i> Geri
+            </div>
+            <div style="font-weight: bold;">Profil Detayı</div>
+            <div style="width: 40px;"></div> </header>
+        <main id="other-profile-content" style="padding: 15px;">
+            </main>
+    </section>
+
+    <section id="app-screen" class="hidden-screen">
+        <header>
+            <div class="logo">Yükümnerdeemmi</div>
+            
+            <div class="user-info" onclick="renderProfil()" style="cursor: pointer;">
+                <div style="text-align: right; line-height: 1.2; margin-right: 8px;">
+                    <span id="displayUsername" style="display:block; font-weight:bold; font-size: 0.9rem;">Kullanıcı</span>
+                    <small style="font-size: 0.7rem; color: var(--text-color); opacity: 0.7;">Ayarlar</small>
+                </div>
+                <img src="" id="headerProfilePic" class="profile-pic-sm" alt="Profil">
+            </div>
+        </header>
+
+        <main id="content-area">
+        </main>
+
+        <nav class="bottom-nav">
+            <button onclick="renderYukBul()" class="nav-item active"><i class="fa-solid fa-truck-ramp-box"></i><span>Yük Bul</span></button>
+            <button onclick="renderIlanVer()" class="nav-item"><i class="fa-solid fa-circle-plus"></i><span>İlan Ver</span></button>
+            <button onclick="renderMesajlar()" class="nav-item"><i class="fa-solid fa-bell"></i><span>İstekler</span></button>
+            <button onclick="renderSosyal()" class="nav-item"><i class="fa-solid fa-users"></i><span>Sosyal</span></button>
+        </nav>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>
