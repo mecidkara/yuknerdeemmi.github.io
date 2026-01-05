@@ -90,16 +90,43 @@ header {
 
 .switch-container { display: flex; justify-content: space-between; align-items: center; margin-top: 10px; padding: 10px 0; }
 
-/* --- INSTAGRAM TARZI EKLENTİLER --- */
+/* INSTAGRAM TARZI EKLENTİLER */
 .stats-row { display: flex; justify-content: space-around; margin: 15px 0; border-top: 1px solid var(--border-color); border-bottom: 1px solid var(--border-color); padding: 10px 0; }
 .stat-item { text-align: center; }
 .stat-num { font-weight: bold; font-size: 1.1rem; display: block; color: var(--text-color); }
 .stat-label { font-size: 0.8rem; opacity: 0.7; }
-
 .private-warning { text-align: center; padding: 40px 20px; color: var(--text-color); opacity: 0.8; background: var(--card-bg); border-radius: 10px; margin-top: 10px; }
 .private-warning i { font-size: 3rem; margin-bottom: 15px; display: block; }
-
 .request-item { display: flex; justify-content: space-between; align-items: center; padding: 15px; background: var(--card-bg); margin-bottom: 10px; border-radius: 10px; border: 1px solid var(--border-color); }
 .req-actions { display: flex; gap: 8px; }
 .btn-accept { background: var(--primary-color); color: white; border: none; padding: 8px 15px; border-radius: 8px; cursor: pointer; font-size: 0.85rem; }
 .btn-reject { background: #ef4444; color: white; border: none; padding: 8px 15px; border-radius: 8px; cursor: pointer; font-size: 0.85rem; }
+
+/* --- ÖZEL UYARI KUTUSU (MODAL) --- */
+.modal-overlay {
+    position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Arka planı karart */
+    backdrop-filter: blur(5px); /* Arka planı bulanıklaştır */
+    display: flex; justify-content: center; align-items: center;
+    z-index: 9999;
+    animation: fadeIn 0.3s ease;
+}
+.modal-box {
+    background: var(--card-bg);
+    width: 85%; max-width: 320px;
+    padding: 25px;
+    border-radius: 20px;
+    text-align: center;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.2);
+    border: 1px solid var(--border-color);
+    animation: popIn 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+.modal-icon {
+    font-size: 3rem; color: var(--primary-color);
+    margin-bottom: 15px;
+}
+.modal-box h3 { margin-bottom: 10px; color: var(--text-color); }
+.modal-box p { color: var(--text-color); opacity: 0.8; margin-bottom: 20px; line-height: 1.5; }
+
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+@keyframes popIn { from { transform: scale(0.8); opacity: 0; } to { transform: scale(1); opacity: 1; } }
